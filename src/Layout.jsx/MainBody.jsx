@@ -12,16 +12,18 @@ const MainBody = () => {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
   const [isWelcome, setIsWelcome] = useState(true);
-  const [error, setError] = useState(null, true);
+  const [error, setError] = useState(null, false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fullLIst = async (name) => {
+    setIsLoading(true);
     try {
       const getData = await fetch(
         `https://restcountries.com/v3.1/name/${name}`
       );
 
       if (!getData.ok) {
-        if (getData.status === 404) {
+        if (getData.status === 404 || getData.status === 400) {
           throw new Error("Resource not found (404)");
         } else {
           throw new Error("Something went wrong!");
@@ -34,6 +36,8 @@ const MainBody = () => {
       console.log(receivedData);
     } catch (error) {
       setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -94,16 +98,23 @@ const MainBody = () => {
           keyPress={handleKeyPress}
         />
       )}
-
-      {isWelcome ? (
+      {isWelcome && (
         <WelcomePage
           myInput={onSearch}
           thing={clickSearch}
           value={value}
           keyPress={handleKeyPress}
         />
+      )}
+
+      {countries?.length < 0 ? (
+        <div className="container">
+          <h2>yolo</h2>
+        </div>
       ) : (
-        <div className="container">{allCountries}</div>
+        <div className="grid-container">
+          <div className="container">{allCountries}</div>
+        </div>
       )}
     </div>
   );

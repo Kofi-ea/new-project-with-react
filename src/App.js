@@ -1,12 +1,9 @@
-import Header from "./Layout.jsx/Header";
-import MainBody from "./Layout.jsx/MainBody";
-import Footer from "./Layout.jsx/Footer";
+import HomePage from "./Components/HomePage";
 
 function App() {
   return (
     <div className="App">
-      <MainBody />
-      <Footer />
+      <HomePage />
     </div>
   );
 }

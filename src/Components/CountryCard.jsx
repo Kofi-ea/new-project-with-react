@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const CountryCard = (props) => {
   const [showDetails, setShowDetails] = useState(false);
-  const [restrictScroll, setRestrictScroll] = useState(true);
+  const [restrictScroll, setRestrictScroll] = useState(false);
 
   function scroll() {
     if (restrictScroll) {
@@ -18,12 +18,14 @@ const CountryCard = (props) => {
 
   function details() {
     setShowDetails(true);
-    scroll();
+
+    document.body.style.overflow = "hidden"; // Disable scrolling
   }
 
   function back() {
     setShowDetails(false);
-    scroll();
+
+    document.body.style.overflow = "";
   }
 
   return (
