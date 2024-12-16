@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import CountryCard from "../Components/CountryCard";
 import WelcomePage from "../Components/WelcomePage";
 import Header from "./Header";
+import WelcomePageHeader from "../Components/WelcomePageHeader";
 
 const MainBody = () => {
   //https://restcountries.com/v3.1/all
@@ -83,14 +84,24 @@ const MainBody = () => {
 
   return (
     <div className="Main-Body">
-      <Header
-        myInput={onSearch}
-        thing={clickSearch}
-        value={value}
-        keyPress={handleKeyPress}
-      />
       {isWelcome ? (
-        <WelcomePage />
+        <WelcomePageHeader />
+      ) : (
+        <Header
+          myInput={onSearch}
+          thing={clickSearch}
+          value={value}
+          keyPress={handleKeyPress}
+        />
+      )}
+
+      {isWelcome ? (
+        <WelcomePage
+          myInput={onSearch}
+          thing={clickSearch}
+          value={value}
+          keyPress={handleKeyPress}
+        />
       ) : (
         <div className="container">{allCountries}</div>
       )}

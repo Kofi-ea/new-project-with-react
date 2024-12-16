@@ -4,15 +4,17 @@ import { useState } from "react";
 
 const CountryCard = (props) => {
   const [showDetails, setShowDetails] = useState(false);
-  const [restrictScroll, setRestrictScroll] = useState(false);
+  const [restrictScroll, setRestrictScroll] = useState(true);
 
   function scroll() {
     if (restrictScroll) {
       document.body.style.overflow = "hidden"; // Disable scrolling
-    } else {
-      document.body.style.overflow = ""; // Enable scrolling (default behavior)
     }
   }
+
+  // else {
+  //   document.body.style.overflow = "";
+  // }
 
   function details() {
     setShowDetails(true);
@@ -21,14 +23,35 @@ const CountryCard = (props) => {
 
   function back() {
     setShowDetails(false);
+    scroll();
   }
 
   return (
     <>
       <div className="country-card" onClick={details}>
         <img className="flags" src={props.flags} alt="" />
-        <h2>{props.capital}</h2>
-        <p>{props.name}</p>
+        <div className="summary-info">
+          <h2 style={{ marginBottom: "15px" }}>{props.name}</h2>
+          <p style={{ marginBottom: "8px" }}>
+            {" "}
+            <strong style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>
+              Capital :{" "}
+            </strong>
+            {props.capital}
+          </p>
+          <p style={{ marginBottom: "8px" }}>
+            <strong style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>
+              Region :{" "}
+            </strong>
+            {props.region}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>
+              Population of :{" "}
+            </strong>
+            {props.pop}
+          </p>
+        </div>
       </div>
 
       {showDetails && (
