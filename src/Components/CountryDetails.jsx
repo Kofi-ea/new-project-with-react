@@ -10,7 +10,7 @@ const CountryDetails = (props) => {
 
       <div className="First-section">
         <p className="title">{props.name}</p>
-        <img src={props.flags} alt="" />
+        <img className="details-flag" src={props.flags} alt="" />
         <p className="flag-description">{props.flagDescription}</p>
       </div>
 
