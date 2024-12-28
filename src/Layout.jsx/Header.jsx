@@ -10,7 +10,7 @@ const Header = (props) => {
           <input
             type="text"
             placeholder="Search country here"
-            // value={props.value}
+            value={props.entryInput}
             onChange={props.myInput}
             onKeyDown={props.keyPress}
           />

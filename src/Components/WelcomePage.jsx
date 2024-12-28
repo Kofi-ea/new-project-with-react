@@ -8,16 +8,18 @@ const WelcomePage = (props) => {
         <input
           type="text"
           placeholder="Search country here"
+          value={props.entryInput}
           onChange={props.myInput}
           onKeyDown={props.keyPress}
         />
-        {}
-        <button className="welcome-page-search-button">
-          <FaSearch
-            className="welcome-page-search-icon"
-            onClick={props.thing}
-          />
-        </button>
+        {props.entryInput < 1 ? null : (
+          <button className="welcome-page-search-button">
+            <FaSearch
+              className="welcome-page-search-icon"
+              onClick={props.thing}
+            />
+          </button>
+        )}
       </div>
     </div>
   );

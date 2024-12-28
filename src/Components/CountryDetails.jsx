@@ -64,18 +64,11 @@ const CountryDetails = (props) => {
       </div>
       <div className="Fourth-section">
         <a href={props.googleMap} target="_blank">
-          <img
-            className="map"
-            src="https://geekzilla.tech/home/wp-content/uploads/2021/03/google-maps-satellite.png"
-            alt=""
-          />
+          <p>GOOGLE MAP LINK</p>
         </a>
+
         <a href={props.streetMap} target="_blank">
-          <img
-            className="map"
-            src="https://www.frpltd.com/hs-fs/hubfs/Images/access-image.png?width=795&name=access-image.png"
-            alt=""
-          />
+          <p>OPEN STREET MAP LINK</p>
         </a>
       </div>
     </div>

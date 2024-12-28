@@ -96,6 +96,7 @@ const MainBody = () => {
           thing={clickSearch}
           value={value}
           keyPress={handleKeyPress}
+          entryInput={search}
         />
       )}
       {isWelcome && (
@@ -104,6 +105,7 @@ const MainBody = () => {
           thing={clickSearch}
           value={value}
           keyPress={handleKeyPress}
+          entryInput={search}
         />
       )}
 
