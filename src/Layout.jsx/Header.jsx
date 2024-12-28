@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <>
       <div className="Header">
-        <h2>React Project</h2>
+        <h2>Around The World</h2>
         <div className="search-box">
           <input
             type="text"

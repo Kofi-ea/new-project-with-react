@@ -19,8 +19,6 @@ const CountryCard = (props) => {
 
   function details() {
     setShowDetails(true);
-
-    document.body.style.overflow = "hidden"; // Disable scrolling
   }
 
   function back() {
